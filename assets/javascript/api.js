@@ -1,5 +1,36 @@
-$("button").on("click", function () {
+var heroArray = ["Deadpool", "Wonder Women", "Teen Titans"];
+
+function createButton() {
+    $("#buttonDiv").empty();
+    for (var i = 0; i < heroArray.length; i++) {
+        var b = $("<button>");
+        b.addClass("hero");
+        b.attr("data-hero", heroArray[i]);
+        b.text(heroArray[i]);
+        $("#buttonDiv").append(b);
+    }
+}
+
+$("#add-hero").on("click", function (event) {
+    event.preventDefault();
+
+    var comicHero = $("#hero-input").val().trim();
+
+    console.log($("#hero-input"));
+
+    console.log("comicHero:", comicHero);
+    heroArray.push(comicHero);
+
+    createButton();
+});
+
+
+$("#buttonDiv").on("click", ".hero", function () {
+
+    $("#gifsHere").empty();
+    
     var hero = $(this).attr("data-hero");
+    console.log("hero", hero);
 
     var queryURL = "https://api.giphy.com/v1/gifs/search";
 
@@ -18,7 +49,7 @@ $("button").on("click", function () {
             var results = response.data;
 
 
-            $("#gifsHere").empty();
+
 
             for (var i = 0, sol = results.length; i < sol; i++) {
 
@@ -27,7 +58,7 @@ $("button").on("click", function () {
                     var resDiv = $("<div>").addClass("item");
                     resDiv.addClass("col-xs-4");
                     var rating = results[i].rating;
-                    
+
                     var paraRating = $("<p>").text("Rating: " + rating);
                     paraRating.addClass("color");
                     var heroImage = $("<img>");
@@ -46,6 +77,7 @@ $("button").on("click", function () {
                     $("#gifsHere").prepend(resDiv);
                 }
             }
+
             $("img").on("click", function () {
 
                 var state = $(this).attr("data-state");
@@ -61,3 +93,5 @@ $("button").on("click", function () {
             });
         });
 });
+
+createButton();

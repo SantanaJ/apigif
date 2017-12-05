@@ -27,9 +27,9 @@ $("button").on("click", function () {
                     var resDiv = $("<div>").addClass("item");
                     resDiv.addClass("col-xs-4");
                     var rating = results[i].rating;
-
+                    
                     var paraRating = $("<p>").text("Rating: " + rating);
-
+                    paraRating.addClass("color");
                     var heroImage = $("<img>");
 
                     heroImage.attr("data-state", "still");

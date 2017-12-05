@@ -117,8 +117,12 @@
 
 #gifsHere{
     margin: 16px 0 0;
-    padding: 1;
+    padding-right: 16%;
     position: relative;
     width: 100%;
+
 }
 
+.color{
+    color:lime;
+}

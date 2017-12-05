@@ -25,7 +25,7 @@ $("button").on("click", function () {
                 if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
 
                     var resDiv = $("<div>").addClass("item");
-
+                    resDiv.addClass("col-xs-4");
                     var rating = results[i].rating;
 
                     var paraRating = $("<p>").text("Rating: " + rating);

@@ -116,9 +116,8 @@
 }
 
 #gifsHere{
-    display: flex;
     margin: 16px 0 0;
-    padding: 0;
+    padding: 1;
     position: relative;
     width: 100%;
 }
